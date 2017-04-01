@@ -17,9 +17,7 @@ python -m http.server
 	<body>
 		<script src="js/three.js"></script>
 
-		<script src="js/shaders/CopyShader.js"></script>
-		<script src="js/shaders/DotScreenShader.js"></script>
-		<script src="js/shaders/RGBShiftShader.js"></script>
+		<script src="js/controls/TrackballControls.js"></script>
 
 		<script src="js/postprocessing/EffectComposer.js"></script>
 		<script src="js/postprocessing/RenderPass.js"></script>
@@ -33,11 +31,12 @@ camera.position.set(0, 10, 20);
 camera.lookAt(new THREE.Vector3(0, 0, 0));
 
 
-
 var renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth*2, window.innerHeight*2,false); //foce 2x2 multi-sample to reduce aliasing
 document.body.appendChild( renderer.domElement );
 
+//add simple mouse interactivity 
+var controls = new THREE.TrackballControls( camera );
 
 //according to wikipeida 355 ml US can is typically 4.83 inches high and 2.60 inches in diameter
 var geometry = new THREE.CylinderGeometry( 2.6/2, 2.6/2, 4.83, 32 ); //32 segments 
@@ -55,7 +54,7 @@ scene.add(light2);
 
 
 var finalRenderer = renderer; //unless overriden below
-/** This optional code block applys a gamma 2.2 encoding as a post processing step * /
+/** This optional code block applys a gamma 2.2 encoding as a post processing step */
 // postprocessing
 //define shader
 
@@ -108,6 +107,8 @@ finalRenderer = composer;
 
 function render() {
 	requestAnimationFrame( render );
+	controls.update();
+
 	finalRenderer.render(scene, camera);
 	
 	can.rotation.x += 0.001;

@@ -1,0 +1,1 @@
+This folder contains three.js and example code from the three.js master project.
