@@ -1,0 +1,28 @@
+We'll be learning about projection and 3D graphics using three.js (https://threejs.org)
+At the end of the workshop you will be able to
+ - Create and manipulate a 3D scene on a web page using three.js and JavaScript
+ - 
+
+At the end of this workshop you will be 
+The purpose of this workshop is to enable participants to 
+This workshop will start with a short presentation 
+
+Prerequisites
+This workshop is open to everyone, however some prior programming experience will be required to get the most out of it.
+ - A basic understanding of JavsScript experience would be helpful, but is not required
+ - No prior experience with 3D graphics is assumed
+
+
+Suggested Software
+This workshop will rely on the three.js libary; I suggest downloading the entire package here:
+    https://github.com/mrdoob/three.js/
+
+The only other requirement for this project is a modern web browser, however the tutorial will make use of
+ - Chrome (strongly reccomended)
+    https://www.google.com/chrome/
+ - VSCode (or any text editor)
+    https://code.visualstudio.com
+ - Python or Node.js to act as a local web server
+    https://www.python.org/downloads/
+    https://nodejs.org/en/
+
