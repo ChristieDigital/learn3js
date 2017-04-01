@@ -25,18 +25,15 @@ python -m http.server
 		<script src="js/postprocessing/ShaderPass.js"></script>
 
 		<script>
+//Create a scene with a camera 
 var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.1, 1000 );
 camera.position.set(0, 10, 20);
 camera.lookAt(new THREE.Vector3(0, 0, 0));
 
-
 var renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth*2, window.innerHeight*2,false); //foce 2x2 multi-sample to reduce aliasing
 document.body.appendChild( renderer.domElement );
-
-//add simple mouse interactivity 
-var controls = new THREE.TrackballControls( camera );
 
 //according to wikipeida 355 ml US can is typically 4.83 inches high and 2.60 inches in diameter
 var geometry = new THREE.CylinderGeometry( 2.6/2, 2.6/2, 4.83, 32 ); //32 segments 
@@ -51,6 +48,11 @@ scene.add(light1);
 
 var light2 = new THREE.AmbientLight({color: 0xA0A0FF}, 0.01);
 scene.add(light2);
+
+
+
+//add simple mouse interactivity 
+var controls = new THREE.TrackballControls( camera );
 
 
 var finalRenderer = renderer; //unless overriden below
@@ -105,14 +107,20 @@ composer.addPass( seffect );
 finalRenderer = composer;
 /* End post processing block        */
 
+var angle = 0;
 function render() {
 	requestAnimationFrame( render );
 	controls.update();
 
 	finalRenderer.render(scene, camera);
 	
-	can.rotation.x += 0.001;
-    can.rotation.y += 0.002;
+	//can.rotation.x += 0.001;
+    //can.rotation.y += 0.002;
+
+  	light1.position.x =10*Math.sin(angle);
+  	light1.position.z =5 +10*Math.cos(angle);
+	//light1.position.y =10+10*Math.cos(angle/1.23456);
+	angle += 0.05;
 }
 render();
 
