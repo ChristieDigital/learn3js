@@ -15,6 +15,10 @@ python -m http.server
 		</style>
 	</head>
 	<body>
+		<video id="video" autoplay loop webkit-playsinline  style="display:none">
+			<source src="stNewVoyages.mp4" >
+		</video>
+
 		<script src="js/three.js"></script>
 		<script src="js/shaders/CopyShader.js"></script>
 
@@ -26,8 +30,13 @@ python -m http.server
 		<script src="js/postprocessing/ShaderPass.js"></script>
 
 		<script>
+
+var loader = new THREE.TextureLoader();
+
 //Create a scene with a camera 
 var scene = new THREE.Scene();
+//                     PerspectiveCamera( vertialFOV, aspect, near, far )
+//note that to map onto an object, both the FOV and distance must match
 var camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.1, 1000 );
 camera.position.set(0, 10, 20);
 camera.lookAt(new THREE.Vector3(0, 0, 0));
@@ -38,9 +47,19 @@ document.body.appendChild( renderer.domElement );
 
 //according to wikipeida 355 ml US can is typically 4.83 inches high and 2.60 inches in diameter
 var geometry = new THREE.CylinderGeometry( 2.6/2, 2.6/2, 4.83, 32 ); //32 segments 
-var material = new THREE.MeshPhongMaterial( { color: 0x00ff00 } );
+//var material = new THREE.MeshPhongMaterial( { color: 0x00ff00 } );//greeen
+
+var video = document.getElementById( 'video' );
+var texture = new THREE.VideoTexture( video );
+				texture.minFilter = THREE.LinearFilter;
+				texture.magFilter = THREE.LinearFilter;
+				texture.format = THREE.RGBFormat;
+
+ material = new THREE.MeshBasicMaterial( { map: texture, overdraw: true, side:THREE.DoubleSide } );
+
 var can = new THREE.Mesh( geometry, material );
 scene.add( can );
+
 
 
 var light1 = new THREE.PointLight({color: 0xFFFF00}, 1.0, 500, 2);
@@ -57,7 +76,8 @@ var controls = new THREE.TrackballControls( camera );
 
 
 var finalRenderer = renderer; //unless overriden below
-/** This optional code block applys a gamma 2.2 encoding as a post processing step */
+/** This optional code block applys a gamma 2.2 encoding as a post processing step * /
+//Note that external video is likely already gamma 2.2 encoded
 // postprocessing
 //define shader
 

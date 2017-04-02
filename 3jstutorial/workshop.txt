@@ -1,11 +1,11 @@
 We'll be learning about projection and 3D graphics using three.js (https://threejs.org)
-At the end of the workshop you will be able to
- - Create and manipulate a 3D scene on a web page using three.js and JavaScript
- - 
+At the end of the workshop you will be able to create and manipulate a 3D scene on a web page using three.js and JavaScript.  
+You will also learn a little about optics, projectors, and how 3D projection can be used with projectors to do cool stuff.
 
-At the end of this workshop you will be 
-The purpose of this workshop is to enable participants to 
-This workshop will start with a short presentation 
+The workshop will be hosted by Daniel Urquhart and Eric Patterson from Christie Digital Systems.
+<<< include our linked in profiles and that photo with us reciving an innovation award, perhaps with funny arrows >>>
+  - The workshop will include a short presentation, but most of the time will be left for you to work, learn, and 
+  create with Dan and Eric available to answer questions and help out.
 
 Prerequisites
 This workshop is open to everyone, however some prior programming experience will be required to get the most out of it.
