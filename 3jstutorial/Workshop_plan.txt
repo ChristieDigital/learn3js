@@ -1,0 +1,21 @@
+Slides - intro
+
+Show video of city hall, possibly dome room, and talk about possibilities of Javascript with Projection
+	- get the video with the smart phone and the sparkles on city hall
+
+
+Discuss how a projector is just a backwards camera and what we can do with this
+
+Demo live video on a soda can
+ - pass out cans and projectors to interested groups
+
+Then walk through how to do it (briefly)
+ - I'm thinking of doing a fairly quick walk through, then being around to help teams
+
+1. The tutorial at threejs.org ( this will get you a rotating cube)
+2. Add mouse navigation
+3. Convert the cube to a cylinder with the right dimensions
+4. Add video
+5* Point to sample code
+
+Challenge to do something amazing
