@@ -2,7 +2,7 @@ Slides - intro
 
 Show video of city hall, possibly dome room, and talk about possibilities of Javascript with Projection
 	- get the video with the smart phone and the sparkles on city hall
-
+	- mention that the multiple outputs in this demo were synchronized with sockets.io, see Carter's presentation from Gamelynx 
 
 Discuss how a projector is just a backwards camera and what we can do with this
 
