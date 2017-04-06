@@ -1,15 +1,17 @@
 This project contains materials intended for a workshop by Daniel Urquhart of Christie Digital Systems Canada at the JamHacks.ca event in April 2017.
 
 This document describes the authorship and license terms for the various materials in this project.
+See workshop.txt for an overview of the workshop.
 
 *** https://threejs.org ***
 The contents of the js folder are redistributed from https://threejs.org without modification
 01_spinningCube.html is trivially derived from the https://threejs.org examples.
 	The https://threejs.org materials are distributed under the MIT License - see js/readme.txt 
 
-*** Jam Hacks ***  DRAFT - JamHacksSoda.png is not commited to the repository yet because I'm waiting to confirm permission
+*** Jam Hacks *** 
 JamHacksSoda.png is a derivative of the JamHacks.ca logo and is distributed with permission.
-	
+http://jamhacks.ca	
+
 
 *** Christie Digital Systems Canada ***
 
