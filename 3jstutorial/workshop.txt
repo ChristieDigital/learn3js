@@ -23,7 +23,3 @@ The only other requirement for this project is a modern web browser, however the
     https://www.google.com/chrome/
  - VSCode (or any text editor)
     https://code.visualstudio.com
- - Python or Node.js to act as a local web server
-    https://www.python.org/downloads/
-    https://nodejs.org/en/
-

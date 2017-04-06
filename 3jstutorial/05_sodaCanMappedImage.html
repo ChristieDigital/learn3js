@@ -1,0 +1,67 @@
+<html>
+<!-- Three.js spinning can example from
+https://threejs.org/docs/index.html#Manual/Getting_Started/Creating_a_scene
++lighting
++camera control (requires TrackballControls.js from three.js examples directory)
+-->
+	<head>
+		<title>Soda Can with camera control</title>
+		<style>
+			body { margin: 0; }
+			canvas { width: 100%; height: 100% }
+		</style>
+	</head>
+	<body>
+		<script src="js/three.js"></script>
+		<script src="js/controls/TrackballControls.js"></script>
+		<script>
+var scene = new THREE.Scene();
+//var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+//The supplied PICO projectors have a throw ratio of 1.5:1, that is, a horiztonal FOV of 2*atan(1.5) = 112.6 degrees and a resolution of WXGA 1280 x 800
+var camera = new THREE.PerspectiveCamera( 112.6*800/1200, 1280.0/800, 0.1, 1000 ); // horizontalFOV, aspect ratio, nearPlane, farPlane
+camera.position.z = 5;
+
+//add simple mouse interactivity 
+var controls = new THREE.TrackballControls( camera );
+
+var renderer = new THREE.WebGLRenderer();
+renderer.setSize( window.innerWidth, window.innerHeight );
+document.body.appendChild( renderer.domElement );
+
+//according to wikipeida 355 ml US can is typically 4.83 inches high and 2.60 inches in diameter
+var geometry = new THREE.CylinderGeometry( 2.6/2, 2.6/2, 4.83, 32 ); //32 segments 
+//var material = new THREE.MeshPhongMaterial( { color: 0xffffff } );
+//create a simple material from the video, note that this material will ignore the lights specified below
+var texture = THREE.ImageUtils.loadTexture( 'JamHacksSoda.png' );
+var material = new THREE.MeshBasicMaterial( { map: texture } );
+var can = new THREE.Mesh( geometry, material );
+scene.add( can );
+
+//pink point light
+var light1 = new THREE.PointLight(0xffc0c0, 1.0, 500, 2);
+light1.position.set(10,10,5);
+scene.add(light1);
+
+//Blue ambient light
+var light2 = new THREE.AmbientLight(0x0000ff, 0.1);
+scene.add(light2);
+
+var angle = 0;
+var render = function () {
+	requestAnimationFrame( render );
+	controls.update();
+
+	//can.rotation.x += 0.01;
+	can.rotation.y += 0.005;
+
+    angle += 0.005;
+    light1.position.x =10*Math.sin(angle);
+    light1.position.z =10*Math.cos(angle);
+    
+	renderer.render(scene, camera);
+};
+
+render();
+		</script>
+	</body>
+</html>
