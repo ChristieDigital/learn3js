@@ -15,6 +15,11 @@ http://jamhacks.ca
 
 *** Christie Digital Systems Canada ***
 
+/cityhall subfolder
+	The cityhall subfolder contains sample assets licenced under a creative commons license, see  /cityhall/LICENSE.txt
+	See https://threejs.org/examples/webgl_loader_obj.html for an example of loading an OBJ file with three.js
+
+/root folder
 The additional numbered tutorial examples were built from this example by Daniel Urquhart at Christie Digital Systems Canada.  The modification embedded in these examples are distributed under the MIT License.
 
 
